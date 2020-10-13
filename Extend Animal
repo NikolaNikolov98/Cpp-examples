@@ -10,14 +10,14 @@
 using namespace std;
 class Animal {
 	public:
-		virtual void eat() = 0;
+		virtual void like() = 0;
 };
 
 
 class Dog: public Animal
 {
 public:
-	void eat()
+	void like()
 	{
 		cout << "I   like a Dog." << endl;
 	}
@@ -26,7 +26,7 @@ public:
 class Cat:public Animal
 {
 public:
-	void eat()
+	void like()
 	{
 		cout << "I   like a Cat." << endl;
 	}
@@ -42,11 +42,7 @@ int main()
 	animal[2] = new Dog();
 
 	for(int i=0; i<3; i++)
-		animal[i]->eat();
+		animal[i]->like();
 	return 0;
 }
 
-
-
-
- 
