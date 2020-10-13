@@ -1,0 +1,60 @@
+
+#include<iostream>
+#include<stdlib.h>
+#include<string.h>
+
+using namespace std;
+
+//Базов клас 
+class Item{
+string contentType;
+int itemId;
+
+public:
+Item(string type, int id) { contentType = type; itemId = id; }
+
+void showItem() {
+cout <<"contentType: " << contentType << '\n';
+cout << "itemId: " << itemId << '\n';
+}
+
+string getcontentType(){
+return contentType;
+}
+
+int getitemId(){
+return itemId;
+}
+
+};
+
+
+class Movie : public Item {
+int rating;
+public:
+
+Movie(int rat, string type, int id) : Item (type, id)
+{
+rating = rat;
+}
+void show()
+{
+cout << "rating: "<< rating << '\n';
+showItem();
+}
+};
+
+
+int main()
+{
+Item i("type1", 4);
+Movie m(8,"type2",44);
+
+cout << "Item: "<<endl;
+i.showItem();
+
+
+cout << "Movie: "<<endl;
+m.show();
+return 0;
+}
