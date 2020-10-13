@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+#include <stdio.h>
+
+
+
+
+#include<iostream>
+#include<math.h>
+using namespace std;
+class Animal {
+	public:
+		virtual void eat() = 0;
+};
+
+
+class Dog: public Animal
+{
+public:
+	void eat()
+	{
+		cout << "I   like a Dog." << endl;
+	}
+};
+
+class Cat:public Animal
+{
+public:
+	void eat()
+	{
+		cout << "I   like a Cat." << endl;
+	}
+};
+
+
+int main()
+{
+	Animal* animal[3];
+
+	animal[0] = new Cat();
+	animal[1] = new Dog();
+	animal[2] = new Dog();
+
+	for(int i=0; i<3; i++)
+		animal[i]->eat();
+	return 0;
+}
+
+
+
+
+ 
