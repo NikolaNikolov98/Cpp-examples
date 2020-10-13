@@ -1,0 +1,92 @@
+
+  #include<iostream>
+
+            using namespace std;
+
+
+
+            class truck; //Предварителна декларация
+
+
+            class car {
+            int passengers;
+            int speed;
+            int sss;//road
+
+            public:
+            car(int p, int s, int ss) { passengers = p; speed = s;sss=ss ;      }
+
+            int sp_greater(truck t);
+            double timee ( truck t);
+            };
+
+            class truck {
+            int weight;
+            int speed;
+            int sss;
+
+
+            public:
+            truck(int w, int s,       int ss) { weight = w; speed = s;     sss=ss ;      }
+
+            friend int car::sp_greater(truck t);
+            friend double car::timee ( truck t);
+            };
+            /* Връща положителна стойност, ако скоростта на колата е по-голяма от
+            тази на камиона. Връща 0, ако скоростите са еднакви. Връща отрицателна
+            стойност, ако скоростта на камиона е по-голяма от тази на колата. */
+
+
+
+            int car::sp_greater(truck t)
+            {
+            return speed - t.speed;
+            // Тъй като sp_greater() е член на car, тотрябва да се подаде само
+            } // обектът за камион
+
+
+
+
+            double car::timee(truck t){
+             //return 1000/100;
+             return  sss/speed;
+            }
+
+
+            int main()
+            {
+
+            double vreme;
+            int t;
+            car c1(6, 100,1000), c2(2, 100,1000);
+            truck t1(10000, 55,5), t2(20000, 72,5);
+            cout << "Comparing c1 and t1:\n";
+            t = c1.sp_greater(t1); //Извиква се като член-функция на car
+            if(t<0)
+                cout << "Truck is faster.\n";
+            else if(t==0)
+             cout << "Car and truck speed is the same.\n";
+            else
+
+            cout << "Car is faster.\n;";
+
+            //C2
+            cout << "\nComparing c2 and t2:\n";
+            t = c2.sp_greater(t2); //Извиква се като член-функция на car
+
+
+            if(t<0)
+            cout << "Truck is faster.\n";
+
+            else if(t==0) cout << "Car and truck speed is the same.\n";
+            else cout << "Car is faster.\n";
+
+
+             vreme = c2.timee(t1);
+             cout << "vreme="<< vreme ;
+
+
+
+
+            return 0;
+            }
